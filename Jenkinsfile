@@ -39,7 +39,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 withKubeConfig([credentialsId: 'kubeconfig']) {
-                    bat 'kubectl apply -f deployment.yaml'
+                    bat '"C:\\Users\\arshi\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\kubectl.exe" apply -f deployment.yaml'
                 }
             }
         }
@@ -47,7 +47,7 @@ pipeline {
         stage('Verify Pods') {
             steps {
                 withKubeConfig([credentialsId: 'kubeconfig']) {
-                    bat 'kubectl get pods'
+                    bat '"C:\\Users\\arshi\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\kubectl.exe" get pods'
                 }
             }
         }
