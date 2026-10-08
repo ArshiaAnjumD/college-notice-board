@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t arshiaanjumd/college-notice-board:1.0 .'
+                bat '"C:\\Users\\arshi\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t arshiaanjumd/college-notice-board:1.0 .'
             }
         }
 
@@ -25,14 +25,14 @@ pipeline {
                         passwordVariable: 'DOCKER_PASSWORD'
                     )
                 ]) {
-                    bat 'docker login -u %DOCKER_USER% -p %DOCKER_PASSWORD%'
+                    bat '"C:\\Users\\arshi\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" login -u %DOCKER_USER% -p %DOCKER_PASSWORD%'
                 }
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                bat 'docker push arshiaanjumd/college-notice-board:1.0'
+                bat '"C:\\Users\\arshi\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" push arshiaanjumd/college-notice-board:1.0'
             }
         }
 
